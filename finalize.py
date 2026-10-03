@@ -138,7 +138,12 @@ uv pip install --python .venv\\Scripts\\python.exe -r requirements-lock.txt
 ```
 The first run downloads the public archive; later runs reuse the checksum-recorded raw input. Pipeline overwrites generated tables/models and recreates SQL tables without consuming previous outputs. Python 3.12 is used; pinned environment is in requirements-lock.txt. Repository folders: config, data/raw, data/processed, notebooks, src, sql, tests, artifacts/tables, artifacts/figures, artifacts/models, reports, docs, app. Full results: artifacts/tables/results.json. Verification evidence: reports/final_audit.md.
 """]
-    write('README.md','# Customer Lifetime Value, Churn & Retention Optimization\n\n'+'\n\n'.join('## '+title+'\n\n'+body for title,body in zip(sections,content)))
+    live_config=ROOT/'config/public_dashboard.json'
+    live_notice=''
+    if live_config.exists():
+        live_url=json.loads(live_config.read_text())['url']
+        live_notice=f'**[Open the live dashboard]({live_url})** · [GitHub project](https://github.com/akashsmb10/customer-lifetime-value-churn-retention-optimization)\n\nThe public browser dashboard provides all nine views, customer exploration, and an interactive budget simulator using verified saved artifacts. The original Python Streamlit dashboard remains in `app/app.py`. [Hosting and update instructions](docs/deployment.md).\n\n'
+    write('README.md','# Customer Lifetime Value, Churn & Retention Optimization\n\n'+live_notice+'\n\n'.join('## '+title+'\n\n'+body for title,body in zip(sections,content)))
     questions=[
     ('What is churn here?',f'No valid purchase within {h} days after cutoff among eligible customers; it is inactivity, not permanent exit.'),
     ('How was the threshold chosen?','Pre-training positive interpurchase-gap 90th percentile, rounded to weeks, with ±28-day sensitivity; repeat-buyer and censoring bias are disclosed.'),

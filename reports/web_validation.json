@@ -1,0 +1,8 @@
+{
+  "page_render_checks": 9,
+  "scenario_parity": "PASS",
+  "invalid_input_checks": "PASS",
+  "customer_lookup": "PASS",
+  "local_assets": "PASS",
+  "webmcp_browser_validation": "Unavailable: no supported browser context is provided; optional tool registration was source reviewed."
+}

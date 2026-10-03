@@ -1,5 +1,9 @@
 # Customer Lifetime Value, Churn & Retention Optimization
 
+**[Open the live dashboard](https://akash-customer-retention-studio.akashsmb10.chatgpt.site)** · [GitHub project](https://github.com/akashsmb10/customer-lifetime-value-churn-retention-optimization)
+
+The public browser dashboard provides all nine views, customer exploration, and an interactive budget simulator using verified saved artifacts. The original Python Streamlit dashboard remains in `app/app.py`. [Hosting and update instructions](docs/deployment.md).
+
 ## Executive Summary
 
 This project turns transaction histories into a ranked retention worklist. It asks who is likely to stop purchasing, how much future gross value they represent, and whether contacting them is worthwhile under explicit budget assumptions. It uses 5,878 observed retail customers as a transferable analytics case study, with no claim of banking-data validation.
