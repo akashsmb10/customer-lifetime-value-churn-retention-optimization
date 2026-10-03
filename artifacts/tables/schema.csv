@@ -1,0 +1,9 @@
+,dtype
+invoice,str
+stock,str
+description,string
+quantity,int64
+date,datetime64[us]
+price,float64
+customer,float64
+country,str

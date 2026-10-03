@@ -1,0 +1,257 @@
+{
+  "audit": {
+    "raw_rows": 1067371,
+    "raw_columns": 8,
+    "duplicates": 34335,
+    "missing_customer_rows": 243007,
+    "negative_quantity_rows": 22950,
+    "nonpositive_price_rows": 6207,
+    "cancellation_rows": 19494,
+    "clean_rows": 779425,
+    "orders": 36969,
+    "customers": 5878,
+    "start": "2009-12-01 07:45:00",
+    "end": "2011-12-09 12:50:00",
+    "archive_sha256": "572e36277c2390fbfde10664750731e0a86f55e33470d91919085f0408e67bfb",
+    "missingness": {
+      "invoice": 0,
+      "stock": 0,
+      "description": 4382,
+      "quantity": 0,
+      "date": 0,
+      "price": 0,
+      "customer": 243007,
+      "country": 0
+    },
+    "gross_positive_revenue": 17374804.268,
+    "outside_documented_date_rows": 0,
+    "invoice_ids_multiple_customers": 0,
+    "positive_revenue_p99_invoice": 3610.5
+  },
+  "threshold": {
+    "discovery_end": "2010-06-01",
+    "gap_quantiles": {
+      "0.5": 16.979861111111113,
+      "0.75": 41.94166666666667,
+      "0.9": 71.91270833333333,
+      "0.95": 95.07392361111113
+    },
+    "horizon_days": 77
+  },
+  "windows": {
+    "train": {
+      "cutoff": "2010-06-01",
+      "prediction_end": "2010-08-17",
+      "customers": 1134,
+      "inactive_rate": 0.47530864197530864
+    },
+    "validation": {
+      "cutoff": "2010-08-24",
+      "prediction_end": "2010-11-09",
+      "customers": 181,
+      "inactive_rate": 0.3756906077348066
+    },
+    "calibration": {
+      "cutoff": "2010-11-16",
+      "prediction_end": "2011-02-01",
+      "customers": 262,
+      "inactive_rate": 0.5648854961832062
+    },
+    "test": {
+      "cutoff": "2011-02-08",
+      "prediction_end": "2011-04-26",
+      "customers": 363,
+      "inactive_rate": 0.5179063360881543
+    }
+  },
+  "model": "logistic",
+  "performance": {
+    "validation": {
+      "logistic": {
+        "roc_auc": 0.7230609057782404,
+        "pr_auc": 0.5814342603399315,
+        "precision": 0.55,
+        "recall": 0.4852941176470588,
+        "f1": 0.515625,
+        "brier": 0.2053640529250341,
+        "log_loss": 0.5900042521752229,
+        "confusion_matrix": [
+          [
+            86,
+            27
+          ],
+          [
+            35,
+            33
+          ]
+        ]
+      },
+      "gradient_boosting": {
+        "roc_auc": 0.7335372201978136,
+        "pr_auc": 0.6190140472974868,
+        "precision": 0.5441176470588235,
+        "recall": 0.5441176470588235,
+        "f1": 0.5441176470588235,
+        "brier": 0.20849756886700307,
+        "log_loss": 0.6016070393566807,
+        "confusion_matrix": [
+          [
+            82,
+            31
+          ],
+          [
+            31,
+            37
+          ]
+        ]
+      }
+    },
+    "base_rate": {
+      "roc_auc": 0.5,
+      "pr_auc": 0.5179063360881543,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.2514939266716296,
+      "log_loss": 0.6961379627963018,
+      "confusion_matrix": [
+        [
+          175,
+          0
+        ],
+        [
+          188,
+          0
+        ]
+      ]
+    },
+    "raw_test": {
+      "roc_auc": 0.7603039513677812,
+      "pr_auc": 0.7543165741244132,
+      "precision": 0.7575757575757576,
+      "recall": 0.39893617021276595,
+      "f1": 0.5226480836236934,
+      "brier": 0.23371936167871699,
+      "log_loss": 0.6653324333709372,
+      "confusion_matrix": [
+        [
+          151,
+          24
+        ],
+        [
+          113,
+          75
+        ]
+      ]
+    },
+    "calibrated_test": {
+      "roc_auc": 0.7603039513677812,
+      "pr_auc": 0.7543165741244132,
+      "precision": 0.7058823529411765,
+      "recall": 0.6382978723404256,
+      "f1": 0.6703910614525139,
+      "brier": 0.2020210138043872,
+      "log_loss": 0.5851394494575433,
+      "confusion_matrix": [
+        [
+          125,
+          50
+        ],
+        [
+          68,
+          120
+        ]
+      ]
+    },
+    "selected_test": {
+      "roc_auc": 0.7603039513677812,
+      "pr_auc": 0.7543165741244132,
+      "precision": 0.7058823529411765,
+      "recall": 0.6382978723404256,
+      "f1": 0.6703910614525139,
+      "brier": 0.2020210138043872,
+      "log_loss": 0.5851394494575433,
+      "confusion_matrix": [
+        [
+          125,
+          50
+        ],
+        [
+          68,
+          120
+        ]
+      ]
+    },
+    "calibration_used": true
+  },
+  "statistics": {
+    "test": "Mann-Whitney U",
+    "statistic": 8100.0,
+    "p_value": 6.378956777275112e-17,
+    "rank_biserial": -0.5075987841945289,
+    "inactive_median": 834.26,
+    "retained_median": 2586.21,
+    "median_difference_ci95": [
+      -2160.38525,
+      -1105.9627500000008
+    ],
+    "inactive_n": 188,
+    "retained_n": 175,
+    "inactive_rate_wilson_ci95": [
+      0.46658560760766227,
+      0.568852044509936
+    ]
+  },
+  "survival": {
+    "First observed Jan-Jun": {
+      "customers": 2717,
+      "events": 2613,
+      "survival_180_days": 0.15393792898397185,
+      "median_days": 77.0
+    },
+    "First observed Jul-Dec": {
+      "customers": 3161,
+      "events": 2388,
+      "survival_180_days": 0.19117101560927535,
+      "median_days": 77.0
+    }
+  },
+  "value": {
+    "spearman_r": 0.22243985125024268,
+    "p_value": 3.770631747033588e-34,
+    "repeat_customers": 2928,
+    "bg_parameters": {
+      "r": 0.7385453171127513,
+      "alpha": 68.39415707791873,
+      "a": 0.009200399700005092,
+      "b": 0.30594446535083714
+    },
+    "gg_parameters": {
+      "p": 2.2561922836607904,
+      "q": 3.5117641147880474,
+      "v": 463.67818800651486
+    },
+    "horizon_days": 77,
+    "predicted_total_test": 227263.28698695483,
+    "observed_total_test": 167977.61,
+    "mae": 420.38084472936595,
+    "simple_mae": 744.9106912638299,
+    "median_prediction": 327.4864038874745
+  },
+  "concentration": {
+    "0.01": 0.31961946893570614,
+    "0.05": 0.5200328179029361,
+    "0.1": 0.6392667568898337,
+    "0.2": 0.7724848472520358
+  },
+  "sql": {
+    "01_rfm.sql": 5878,
+    "02_cohorts.sql": 5878,
+    "03_retention.sql": 300,
+    "04_value.sql": 363,
+    "05_segments.sql": 4,
+    "06_high_value_risk.sql": 26,
+    "07_concentration.sql": 1,
+    "08_priority.sql": 363
+  }
+}

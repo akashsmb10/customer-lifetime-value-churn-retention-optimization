@@ -1,0 +1,6 @@
+{
+  "seed": 42,
+  "horizon_days": 77,
+  "identity_partition": "SHA256 modulo 10: train 0-5, validation 6, calibration 7, test 8-9",
+  "margin_assumption": 0.3
+}
