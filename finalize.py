@@ -143,7 +143,9 @@ The first run downloads the public archive; later runs reuse the checksum-record
     if live_config.exists():
         live_url=json.loads(live_config.read_text())['url']
         live_notice=f'**[Open the live dashboard]({live_url})** · [GitHub project](https://github.com/akashsmb10/customer-lifetime-value-churn-retention-optimization)\n\nThe public browser dashboard provides all nine views, customer exploration, and an interactive budget simulator using verified saved artifacts. The original Python Streamlit dashboard remains in `app/app.py`. [Hosting and update instructions](docs/deployment.md).\n\n'
-    write('README.md','# Customer Lifetime Value, Churn & Retention Optimization\n\n'+live_notice+'\n\n'.join('## '+title+'\n\n'+body for title,body in zip(sections,content)))
+    preview_file=ROOT/'docs/dashboard_preview.md'
+    preview=preview_file.read_text(encoding='utf-8').replace('(images/','(docs/images/')+'\n\n' if preview_file.exists() else ''
+    write('README.md','# Customer Lifetime Value, Churn & Retention Optimization\n\n'+live_notice+preview+'\n\n'.join('## '+title+'\n\n'+body for title,body in zip(sections,content)))
     questions=[
     ('What is churn here?',f'No valid purchase within {h} days after cutoff among eligible customers; it is inactivity, not permanent exit.'),
     ('How was the threshold chosen?','Pre-training positive interpurchase-gap 90th percentile, rounded to weeks, with ±28-day sensitivity; repeat-buyer and censoring bias are disclosed.'),

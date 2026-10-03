@@ -4,6 +4,33 @@
 
 The public browser dashboard provides all nine views, customer exploration, and an interactive budget simulator using verified saved artifacts. The original Python Streamlit dashboard remains in `app/app.py`. [Hosting and update instructions](docs/deployment.md).
 
+## Dashboard preview
+
+The live dashboard connects customer inactivity risk, estimated future value, and retention decisions. These are real browser screenshots of the published dashboard's local build.
+
+### Executive overview
+
+![Executive dashboard showing customer counts, inactivity risk, revenue concentration, and customer value segments](docs/images/dashboard-overview.png)
+
+<details>
+<summary><strong>View the budget simulator</strong></summary>
+
+![Budget simulator showing targeting strategies, contact economics, and scenario contribution](docs/images/dashboard-budget.png)
+
+Change contact capacity, assumed intervention effectiveness, margin, contact cost, and incentives. The displayed outcomes are scenarios rather than measured intervention impact.
+
+</details>
+
+<details>
+<summary><strong>View the individual customer explorer</strong></summary>
+
+![Customer explorer showing historical behavior, estimated risk, future revenue, and a local model explanation](docs/images/dashboard-customer.png)
+
+Inspect an evaluated customer's observed history, estimated inactivity probability, future gross revenue, and model sensitivity explanations.
+
+</details>
+
+
 ## Executive Summary
 
 This project turns transaction histories into a ranked retention worklist. It asks who is likely to stop purchasing, how much future gross value they represent, and whether contacting them is worthwhile under explicit budget assumptions. It uses 5,878 observed retail customers as a transferable analytics case study, with no claim of banking-data validation.
